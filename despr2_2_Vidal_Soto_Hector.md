@@ -52,13 +52,14 @@ Evidencia: ordenes ejecutadas, salida de las consultas antes y despues de recrea
 ## Actividad 1.4: bind mount para desarrollo
 
 1. Sirve con un contenedor de httpd:2.4-alpine la carpeta web-apache de la actividad 2.1 del boletin anterior, usando un bind mount. Comprueba con curl que responde y que contenido muestra.
-
+![archivo de respuesta](1.4.1.png)
 2. Modifica la pagina en el host y demuestra que el cambio se ve sin reconstruir ni reiniciar nada.
 
 3. Intenta crear un archivo en esa carpeta desde dentro del contenedor con docker exec.
-
+![archivo de respuesta](1.4.3.png)
 ¿Que ocurre y por que?
 Docker Compose
+Qué ocurre: normalmente devuelve Permission denied por motivos como permisos del host o el propietario
 
 ## Actividad 2.1: un proyecto Compose con imagenes de Docker Hub: WordPress con MariaDB
 
@@ -83,7 +84,10 @@ Tareas:
 1. Escribe el compose.yaml, validalo con docker compose config y levanta el proyecto.
 
 Comprueba con docker compose ps el estado de salud de db y con docker network ls y docker volume ls que recursos ha creado Compose y con que nombres.
+![archivo de respuesta](2.1.1.png)
+![archivo de respuesta](2.1.2.png)
 2. Completa la instalacion de WordPress desde el navegador del anfitrion (con un tunel SSH al puerto 8080 si lo haces desde la VM).
+![archivo de respuesta](2.1.3.png)
 3. Ejecuta docker compose up -d dos veces seguidas sin cambios. Despues, cambia algo de la configuracion de wp. Por ejemplo, añade un label:
 
 labels:
@@ -93,9 +97,14 @@ com.ejemplo.practica: "actualizada"
 (labels es un diccionario de metadatos que no afecta al funcionamiento del contenedor. Se utilizan para añadir informacion adicional al contenedor, como tags o atributos de identificacion, que permiten organizar y filtrar los contenedores, o que otras herramientas lean informacion del contenedor).
 
 Ejecuta de nuevo docker compose up -d y explica que hace Compose en cada caso.
+![archivo de respuesta](2.1.4.png)
 4. Crea una entrada en WordPress y muestra la captura de pantalla (accede a Posts → Add Post). Explica que ocurre con la entrada si eliminas el contenedor wp y lo recreas con docker compose up -d.
+![archivo de respuesta](2.1.5.png)
+![archivo de respuesta](2.1.6.png)
 5. Demuestra que la entrada sobrevive a docker compose down y que se pierde con docker compose down -v.
+![archivo de respuesta](2.1.7.png)
 6. Renombra .env temporalmente y muestra el error que se obtiene al validar el proyecto.
+![archivo de respuesta](2.1.8.png)
 
 ## Actividad 2.2: un proyecto para construir la imagen con Compose
 
