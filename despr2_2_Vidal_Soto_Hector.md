@@ -109,5 +109,6 @@ Ejecuta de nuevo docker compose up -d y explica que hace Compose en cada caso.
 ## Actividad 2.2: un proyecto para construir la imagen con Compose
 
 1. Crea un segundo proyecto Compose para la aplicacion saludo de la actividad 4.1, que construya la imagen con build:, tome MENSAJE de un archivo .env y tenga una comprobacion de salud sobre la ruta /salud (la imagen node:24-alpine incluye wget).
-
+![archivo de respuesta](2.2.1.png)
 2. Modifica app.js (por ejemplo, cambia el header de nivel 1 a nivel 2), aplica el cambio y muestra en la salida que Compose reconstruye la imagen y recrea el servicio.
+![archivo de respuesta](2.2.2.png)
