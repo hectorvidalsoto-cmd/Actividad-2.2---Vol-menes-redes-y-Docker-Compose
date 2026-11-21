@@ -1,0 +1,12 @@
+services:
+  saludo:
+    build: .
+    environment:
+      MENSAJE: ${MENSAJE}
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/salud"]
+      interval: 10s
+      timeout: 5s
+      retries: 3

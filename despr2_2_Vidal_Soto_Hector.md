@@ -12,7 +12,6 @@ Comprueba que un contenedor temporal en esa red lo alcanza por nombre.
 3. Guarda un valor con redis-cli -h NOMBRE set curso daw y recuperalo con get curso desde otro contenedor temporal. ¿Donde esta guardado el valor?
 ![archivo de respuesta](1.1.3.png)
 El valor se guarda en el directorio de datos de Redis dentro del contenedor cache2 (capa escribible). Si se elimina el contenedor, el dato se pierde salvo que se monte un volumen.
-
 4. Explica por que en la configuracion de una aplicacion se usan nombres de contenedor y no direcciones IP, y por que para todo esto no ha hecho falta publicar ningun puerto.
     - La IP cambia al recrear el contenedor; el nombre no, y el DNS de la red propia lo resuelve siempre a la IP actual .
 
